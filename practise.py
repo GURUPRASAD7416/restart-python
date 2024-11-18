@@ -1,102 +1,57 @@
 
-'''
-comprction op
+def add(a, b):
+    return a + b
 
+def subtract(a, b):
+    return a - b
 
-==
+def multiply(a, b):
+    return a * b
 
-!=
+def divide(a, b):
+    if b == 0:
+        return "Error! Division by zero."
+    return a / b
 
-<
+def calculator():
+    print("Welcome to the Calculator App!")
+    print("Choose an operation:")
+    print("1. Addition")
+    print("2. Subtraction")
+    print("3. Multiplication")
+    print("4. Division")
+    print("5. Exit")
 
->
+    while True:
+        try:
+            choice = int(input("\nEnter your choice (1-5): "))
+            
+            if choice == 5:
+                print("Exiting the Calculator. Goodbye!")
+                break
 
+            if choice not in [1, 2, 3, 4]:
+                print("Invalid choice. Please select a valid option.")
+                continue
 
+            num1 = float(input("Enter the first number: "))
+            num2 = float(input("Enter the second number: "))
 
+            if choice == 1:
+                print(f"The result of addition is: {add(num1, num2)}")
+            elif choice == 2:
+                print(f"The result of subtraction is: {subtract(num1, num2)}")
+            elif choice == 3:
+                print(f"The result of multiplication is: {multiply(num1, num2)}")
+            elif choice == 4:
+                print(f"The result of division is: {divide(num1, num2)}")
+        
+        except ValueError:
+            print("Invalid input! Please enter numbers only.")
 
+# Run the calculator
+calculator()
 
-'''
-# a = 'apple'
-
-# b = 'banna'
-
-# c = 'yellow'
-
-# if a == 'apple':
-#    print('one')
-# elif b == 'banna':
-#    print('two')
-# elif c == 'yellow':
-#    print('three')
-# else:
-#    print('halo this is three')
-
-
-'''
-
-{logical op}
-or   operater
-
-and   operater
-'''
-
-# x = 32;
-
-# y = 93;
-
-# z = 73;
-
-# if x < y and z > y:
-#    print('this is correct');
-# else:
-#    print('where are you')
-
-
-
-'''
-loop's
-
-for loop
-
-while loop
-
-'''
-
-
-# for i in range (0,10,2):
-#    print(i)
-
-
-
-# a = 10;
-
-# while a > 1:
-#    print("guru")
-#    a+=1
-
-
-
-# password = " ";
-
-# while len(password) < 6:
-#    password = input('enter your facebook password')
-
-#    print('successfully completed')
-
-
-
-'''
-conditional statement
-'''
-
-# g = 10;
-
-# if g > 3:
-#    print('samsung')
-# elif g > 4:
-#    print('apple 12')
-# else:
-#    print('this is false')
 
 
 
