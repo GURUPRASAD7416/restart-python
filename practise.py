@@ -1,58 +1,62 @@
 
-def add(a, b):
-    return a + b
+class BankAccount:
+    def __init__(self, account_holder, balance=0):
+        self.account_holder = account_holder
+        self.balance = balance
 
-def subtract(a, b):
-    return a - b
+    def deposit(self, amount):
+        if amount > 0:
+            self.balance += amount
+            print(f"Deposited ₹{amount} successfully.")
+        else:
+            print("Invalid deposit amount.")
 
-def multiply(a, b):
-    return a * b
+    def withdraw(self, amount):
+        if amount > self.balance:
+            print("Insufficient balance.")
+        elif amount <= 0:
+            print("Invalid withdrawal amount.")
+        else:
+            self.balance -= amount
+            print(f"Withdrawn ₹{amount} successfully.")
 
-def divide(a, b):
-    if b == 0:
-        return "Error! Division by zero."
-    return a / b
+    def check_balance(self):
+        print(f"Account Holder: {self.account_holder}")
+        print(f"Current Balance: ₹{self.balance}")
 
-def calculator():
-    print("Welcome to the Calculator App!")
-    print("Choose an operation:")
-    print("1. Addition")
-    print("2. Subtraction")
-    print("3. Multiplication")
-    print("4. Division")
-    print("5. Exit")
+
+# Main Program
+def main():
+    print("Welcome to Python Bank!")
+    name = input("Enter account holder name: ")
+    account = BankAccount(account_holder=name)
 
     while True:
-        try:
-            choice = int(input("\nEnter your choice (1-5): "))
-            
-            if choice == 5:
-                print("Exiting the Calculator. Goodbye!")
-                break
-
-            if choice not in [1, 2, 3, 4]:
-                print("Invalid choice. Please select a valid option.")
-                continue
-
-            num1 = float(input("Enter the first number: "))
-            num2 = float(input("Enter the second number: "))
-
-            if choice == 1:
-                print(f"The result of addition is: {add(num1, num2)}")
-            elif choice == 2:
-                print(f"The result of subtraction is: {subtract(num1, num2)}")
-            elif choice == 3:
-                print(f"The result of multiplication is: {multiply(num1, num2)}")
-            elif choice == 4:
-                print(f"The result of division is: {divide(num1, num2)}")
+        print("\n--- Menu ---")
+        print("1. Check Balance")
+        print("2. Deposit Money")
+        print("3. Withdraw Money")
+        print("4. Exit")
         
-        except ValueError:
-            print("Invalid input! Please enter numbers only.")
+        choice = input("Choose an option: ")
 
-# Run the calculator
-calculator()
+        if choice == "1":
+            account.check_balance()
+        elif choice == "2":
+            amount = float(input("Enter amount to deposit: ₹"))
+            account.deposit(amount)
+        elif choice == "3":
+            amount = float(input("Enter amount to withdraw: ₹"))
+            account.withdraw(amount)
+        elif choice == "4":
+            print("Thank you for using Python Bank. Goodbye!")
+            break
+        else:
+            print("Invalid choice. Please try again.")
 
-
+# Run the program
+if __name__ == "__main__":
+    main()
 
 
 
